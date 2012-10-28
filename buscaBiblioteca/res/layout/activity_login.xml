@@ -1,0 +1,69 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <ScrollView
+        android:id="@+id/scrollViewLogin"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:padding="20dip" >
+
+            <ImageView
+                android:id="@+id/imageViewIcon"
+                android:layout_width="95dp"
+                android:layout_height="138dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_launcher" />
+
+            <TextView
+                android:id="@+id/textViewLoginUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Usuario"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/editTextLoginUser"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_rounded_corners"
+                android:inputType="number"
+                android:singleLine="true" >
+
+                <requestFocus />
+            </EditText>
+
+            <TextView
+                android:id="@+id/textViewLoginPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dip"
+                android:text="Password"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/editTextLoginPassword"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_rounded_corners"
+                android:inputType="textPassword"
+                android:singleLine="true" />
+
+            <Button
+                android:id="@+id/buttonLogin"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dip"
+                android:text="Button" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
