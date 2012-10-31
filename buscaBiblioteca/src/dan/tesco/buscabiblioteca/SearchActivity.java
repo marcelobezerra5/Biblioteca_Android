@@ -14,8 +14,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import dan.tesco.buscabiblioteca.R;
-import dan.tesco.buscabiblioteca.async.BookAsyncClient;
-import dan.tesco.buscabiblioteca.data.DataManager;
+import dan.tesco.buscabiblioteca.async.AsyncBook;
+import dan.tesco.buscabiblioteca.data.UserData;
 
 
 public class SearchActivity extends Activity {
@@ -54,7 +54,7 @@ txt_user= (TextView) findViewById(R.id.textViewUser);
 				search= (EditText)findViewById(R.id.editTextSearch);
 				String searchString = search.getText().toString();
 				ListView lv = (ListView)findViewById(R.id.listViewSearch);
-				BookAsyncClient bs= new BookAsyncClient();
+				AsyncBook bs= new AsyncBook();
 				try {
 					bs.searchBook(searchString, SearchActivity.this, lv);
 				} catch (JSONException e) {
@@ -74,7 +74,7 @@ txt_user= (TextView) findViewById(R.id.textViewUser);
     @Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if (item.getItemId() == R.id.logout) {
-			DataManager preferences = new DataManager();
+			UserData preferences = new UserData();
 			preferences.deletePeferences(SearchActivity.this);
 			finish();
 		}
