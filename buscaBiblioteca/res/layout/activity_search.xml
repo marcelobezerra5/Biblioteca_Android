@@ -8,21 +8,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true" >
-
-        <TextView
-            android:id="@+id/textViewUser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="usuario" />
+        android:layout_alignParentRight="true"
+        android:padding="10dp" >
 
         <EditText
             android:id="@+id/editTextSearch"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:ems="10" >
+            android:background="@drawable/edittext_rounded_corners"
+            android:ems="10"
+            android:singleLine="true" >
 
             <requestFocus />
         </EditText>
@@ -30,9 +26,10 @@
         <Button
             android:id="@+id/buttonSearch"
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Buscar" />
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/search" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -42,7 +39,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/search"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:padding="10dp" >
 
         <ListView
             android:id="@+id/listViewSearch"

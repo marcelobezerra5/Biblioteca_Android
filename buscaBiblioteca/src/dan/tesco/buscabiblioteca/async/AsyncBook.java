@@ -145,7 +145,8 @@ public class AsyncBook {
 			int status = libro.getInt("prestado");
 
 			this.books.add(new Book(i, author, titulo,
-					status == 0 ? "drawable/ok" : "drawable/no"));
+					status == 0 ? "drawable/ok" : "drawable/no",
+					status == 0 ? "disponible" : "no disponible"));//agregado para disponibilidad de libro
 		}
 
 	}

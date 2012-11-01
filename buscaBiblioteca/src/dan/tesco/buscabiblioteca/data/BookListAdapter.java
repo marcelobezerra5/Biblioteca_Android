@@ -54,16 +54,20 @@ public class BookListAdapter extends BaseAdapter {
 		Book item = items.get(position);
 
 		ImageView image = (ImageView) vi.findViewById(R.id.imageViewPrestado);
+		
 		int imageResource = activity.getResources().getIdentifier(
 				item.getDispImagen(), null, activity.getPackageName());
 		image.setImageDrawable(activity.getResources().getDrawable(
 				imageResource));
 
-		TextView nombre = (TextView) vi.findViewById(R.id.textViewTitle);
-		nombre.setText(item.getTitulo());
+		TextView titulo = (TextView) vi.findViewById(R.id.textViewTitle);
+		titulo.setText(item.getTitulo());
 
-		TextView tipo = (TextView) vi.findViewById(R.id.textViewAuthor);
-		tipo.setText(item.getAutor());
+		TextView autor = (TextView) vi.findViewById(R.id.textViewAuthor);
+		autor.setText(item.getAutor());
+		//agregado disponibilidad libro
+		TextView disponible = (TextView) vi.findViewById(R.id.textViewDisponible);
+		disponible.setText(item.getDispLibro());
 
 		return vi;
 	}

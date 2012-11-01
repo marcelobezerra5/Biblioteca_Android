@@ -5,17 +5,20 @@ public class Book {
 	protected String autor;
 	protected String titulo;
 	protected String dispImagen;
+	protected String dispLibro;//agregado para disponibilidad de libro
 	
 	public Book(){
 		this.autor="";
 		this.titulo="";
 		this.dispImagen="";
+		this.dispLibro="";//
 	}
-	public Book(long id, String autor, String titulo, String dispImagen){
+	public Book(long id, String autor, String titulo, String dispImagen, String dispLibro){
 		this.id=id;
 		this.autor=autor;
 		this.titulo=titulo;
 		this.dispImagen=dispImagen;
+		this.dispLibro=dispLibro;//
 	}
 	public long getId() {
 		return id;
@@ -40,6 +43,12 @@ public class Book {
 	}
 	public void setDispImagen(String dispImagen) {
 		this.dispImagen = dispImagen;
+	}
+	public String getDispLibro() {//
+		return dispLibro;
+	}
+	public void setDispLibro(String dispLibro) {//
+		this.dispLibro = dispLibro;
 	}
 
 }

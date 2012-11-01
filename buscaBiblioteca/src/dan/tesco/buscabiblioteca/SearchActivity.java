@@ -32,17 +32,19 @@ public class SearchActivity extends Activity {
         wa.setTitle(user); //text window
         setContentView(R.layout.activity_search);
         
-txt_user= (TextView) findViewById(R.id.textViewUser);          
+//txt_user= (TextView) findViewById(R.id.textViewUser);          
         
         Bundle extras = getIntent().getExtras();
         //Obtenemos datos enviados en el intent.
         if (extras != null) {
      	   user  = extras.getString("usuario");//usuario
+     	   setTitle("Bienvenid@ "+user);
         }else{
      	   user="error";
+     	   setTitle(user);
      	   }
         
-        txt_user.setText(user);//cambiamos texto al nombre del usuario logueado
+ //       txt_user.setText(user);//cambiamos texto al nombre del usuario logueado
         boton = (Button) findViewById(R.id.buttonSearch);
         boton.setOnClickListener(new View.OnClickListener() {
 			
