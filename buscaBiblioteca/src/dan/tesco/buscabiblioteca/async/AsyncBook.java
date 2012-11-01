@@ -8,6 +8,9 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -53,6 +56,20 @@ public class AsyncBook {
 							BookListAdapter adapter = new BookListAdapter(
 									(Activity) context, listaDeLibros);
 							lv.setAdapter(adapter);
+//				            lv.setOnItemClickListener(new OnItemClickListener() {
+//
+//											@Override
+//											public void onItemClick(
+//													AdapterView<?> parent,
+//													View view, int position,
+//													long id) {
+//												// TODO Auto-generated method stub
+//												Toast.makeText(context,
+//													      "Click ListItem Number " + position, Toast.LENGTH_LONG)
+//													      .show();
+//											}
+//							            	
+//										});
 						} catch (JSONException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();

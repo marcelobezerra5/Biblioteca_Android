@@ -4,16 +4,20 @@ import org.json.JSONException;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.Toast;
 import dan.tesco.buscabiblioteca.R;
 import dan.tesco.buscabiblioteca.async.AsyncBook;
+import dan.tesco.buscabiblioteca.data.Book;
 import dan.tesco.buscabiblioteca.data.UserData;
 
 
@@ -21,18 +25,17 @@ public class SearchActivity extends Activity {
 
 	public static final String PREFS_NAME = "LoginPrefs";
 	String user;
-	TextView txt_user;
 	Button boton;
 	EditText search;
+	ListView lv;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Window wa = getWindow(); // text window
-        wa.setTitle(user); //text window
         setContentView(R.layout.activity_search);
         
-//txt_user= (TextView) findViewById(R.id.textViewUser);          
+        search= (EditText)findViewById(R.id.editTextSearch);
+        lv = (ListView)findViewById(R.id.listViewSearch);
         
         Bundle extras = getIntent().getExtras();
         //Obtenemos datos enviados en el intent.
@@ -44,7 +47,6 @@ public class SearchActivity extends Activity {
      	   setTitle(user);
      	   }
         
- //       txt_user.setText(user);//cambiamos texto al nombre del usuario logueado
         boton = (Button) findViewById(R.id.buttonSearch);
         boton.setOnClickListener(new View.OnClickListener() {
 			
@@ -52,9 +54,7 @@ public class SearchActivity extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				//BookAsync...
-				search= (EditText)findViewById(R.id.editTextSearch);
 				String searchString = search.getText().toString();
-				ListView lv = (ListView)findViewById(R.id.listViewSearch);
 				AsyncBook bs= new AsyncBook();
 				try {
 					bs.searchBook(searchString, SearchActivity.this, lv);
@@ -64,7 +64,29 @@ public class SearchActivity extends Activity {
 				}
 			}
 		});
-            
+
+            lv.setOnItemLongClickListener(new OnItemLongClickListener() {
+
+				@Override
+				public boolean onItemLongClick(AdapterView<?> parent, View view,
+						int position, long id) {
+					// TODO Auto-generated method stub
+					//Toast.makeText(getApplicationContext(),
+					//	      "Click ListItem Number " + position, Toast.LENGTH_LONG)
+					//	      .show();
+					Book libro= (Book) parent.getItemAtPosition(position);
+					Intent i=new Intent(android.content.Intent.ACTION_SEND);
+					i.setType("text/plain");
+					i.putExtra(android.content.Intent.EXTRA_SUBJECT,"Pedido libro");
+					i.putExtra(android.content.Intent.EXTRA_EMAIL,"biblioteca@tesco.mx");
+					i.putExtra(android.content.Intent.EXTRA_TEXT, "quiero apartar el siguiente libro: ");
+					i.putExtra(android.content.Intent.EXTRA_TEXT,"Título: "+libro.getTitulo());
+					i.putExtra(android.content.Intent.EXTRA_TEXT,"Autor: "+libro.getAutor());
+					startActivity(Intent.createChooser(i,"Share via"));
+					return true;
+				}
+            	
+			});
     }
 
     @Override
