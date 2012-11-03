@@ -16,10 +16,10 @@
 
             <ImageView
                 android:id="@+id/imageViewIcon"
-                android:layout_width="95dp"
-                android:layout_height="138dp"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_launcher" />
+                android:src="@drawable/user_book_4174" />
 
             <TextView
                 android:id="@+id/textViewLoginUser"

@@ -9,12 +9,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 import dan.tesco.buscabiblioteca.R;
 import dan.tesco.buscabiblioteca.async.AsyncBook;
 import dan.tesco.buscabiblioteca.data.Book;
@@ -36,6 +34,7 @@ public class SearchActivity extends Activity {
         
         search= (EditText)findViewById(R.id.editTextSearch);
         lv = (ListView)findViewById(R.id.listViewSearch);
+        boton = (Button) findViewById(R.id.buttonSearch);
         
         Bundle extras = getIntent().getExtras();
         //Obtenemos datos enviados en el intent.
@@ -47,7 +46,6 @@ public class SearchActivity extends Activity {
      	   setTitle(user);
      	   }
         
-        boton = (Button) findViewById(R.id.buttonSearch);
         boton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override

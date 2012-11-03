@@ -14,10 +14,12 @@ public final class R {
         public static final int edittext_rounded_corners=0x7f020000;
         public static final int ic_action_search=0x7f020001;
         public static final int ic_launcher=0x7f020002;
-        public static final int no=0x7f020003;
-        public static final int ok=0x7f020004;
-        public static final int rounded=0x7f020005;
-        public static final int search=0x7f020006;
+        public static final int icono=0x7f020003;
+        public static final int no=0x7f020004;
+        public static final int ok=0x7f020005;
+        public static final int rounded=0x7f020006;
+        public static final int search=0x7f020007;
+        public static final int user_book_4174=0x7f020008;
     }
     public static final class id {
         public static final int buttonLogin=0x7f070006;
